@@ -51,12 +51,12 @@ function draw(){
 }
 
 function changeFont(){
-    for(var i=65;i<=90;i+=1){
+   /* for(var i=65;i<=90;i+=1){
         try {
             fontText['textImage'+String.fromCharCode(i)] = loadImage('fontText/'+String.fromCharCode(i)+'.jpg')
         } catch (error) {
         }
-    }
+    }*/
     for(var i=97;i<=122;i+=1){
         try {
             fontText['textImage'+String.fromCharCode(i)] = loadImage('fontText/'+String.fromCharCode(i)+'.jpg')
