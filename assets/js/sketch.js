@@ -1,4 +1,4 @@
-myData = `swapnil gawd`
+myData = `a`
 let img, myFont;
 imgNum = 1
 fontNum = 1
@@ -38,6 +38,7 @@ function draw(){
         }
         if(myData[i] != ' '){
             if('textImage'+myData[i] in fontText){
+                console.log(myData[i]);
                 image(fontText['textImage'+myData[i]], pos.x, pos.y)
                 pos.x += fontText['textImage'+myData[i]].width*fontsize
             }
@@ -50,8 +51,17 @@ function draw(){
 }
 
 function changeFont(){
+    for(var i=65;i<=90;i+=1){
+        try {
+            fontText['textImage'+String.fromCharCode(i)] = loadImage('font2/'+String.fromCharCode(i)+'.jpg')
+        } catch (error) {
+        }
+    }
     for(var i=97;i<=122;i+=1){
-        fontText['textImage'+String.fromCharCode(i)] = loadImage('fontText/'+String.fromCharCode(i)+'.jpg')
+        try {
+            fontText['textImage'+String.fromCharCode(i)] = loadImage('font2/'+String.fromCharCode(i)+'.jpg')
+        } catch (error) {
+        }
     }
     fontText['space'] = loadImage('fontText/space.jpg')
 }
