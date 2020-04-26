@@ -1,13 +1,13 @@
-myData = `a`
+myData = `swapnil gawd`
 let img, myFont;
 imgNum = 1
 fontNum = 1
 pageNum = 1
 xaxis=20
 yaxis=20
-fontsize=1
+fontsize=0.4
 w=700
-linespacing=true
+linespacing=60
 fontText = [];
 function preload() {
     changeFont();
@@ -34,12 +34,11 @@ function draw(){
     for(var i=0;i<=myData.length;i++){
         if(pos.x >= xaxis+w || myData[i]=='\n'){
             pos.x = xaxis
-            pos.y += 60
+            pos.y += linespacing*fontsize
         }
         if(myData[i] != ' '){
             if('textImage'+myData[i] in fontText){
-                console.log(myData[i]);
-                image(fontText['textImage'+myData[i]], pos.x, pos.y)
+                image(fontText['textImage'+myData[i]], pos.x, pos.y,fontText['textImage'+myData[i]].width*fontsize,fontText['textImage'+myData[i]].height*fontsize)
                 pos.x += fontText['textImage'+myData[i]].width*fontsize
             }
         }else{
@@ -51,15 +50,21 @@ function draw(){
 }
 
 function changeFont(){
-   /* for(var i=65;i<=90;i+=1){
+    for(var i=65;i<=90;i+=1){
         try {
-            fontText['textImage'+String.fromCharCode(i)] = loadImage('fontText/'+String.fromCharCode(i)+'.jpg')
+            fontText['textImage'+String.fromCharCode(i)] = loadImage('fontText/'+str(i)+'.jpg')
         } catch (error) {
         }
-    }*/
+    }
     for(var i=97;i<=122;i+=1){
         try {
-            fontText['textImage'+String.fromCharCode(i)] = loadImage('fontText/'+String.fromCharCode(i)+'.jpg')
+            fontText['textImage'+String.fromCharCode(i)] = loadImage('fontText/'+str(i)+'.jpg')
+        } catch (error) {
+        }
+    }
+    for(var i=48;i<=57;i+=1){
+        try {
+            fontText['textImage'+String.fromCharCode(i)] = loadImage('fontText/'+str(i)+'.jpg')
         } catch (error) {
         }
     }
