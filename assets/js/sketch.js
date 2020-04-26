@@ -1,4 +1,4 @@
-myData = `swapnil gawd`
+myData = `Demo`
 let img, myFont;
 imgNum = 1
 fontNum = 1
