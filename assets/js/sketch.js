@@ -5,9 +5,9 @@ fontNum = 1
 pageNum = 1
 xaxis=20
 yaxis=20
-fontsize=30
+fontsize=1
 w=700
-linespacing=false
+linespacing=true
 fontText = [];
 function preload() {
     changeFont();
@@ -39,11 +39,11 @@ function draw(){
         if(myData[i] != ' '){
             if('textImage'+myData[i] in fontText){
                 image(fontText['textImage'+myData[i]], pos.x, pos.y)
-                pos.x += fontText['textImage'+myData[i]].width
+                pos.x += fontText['textImage'+myData[i]].width*fontsize
             }
         }else{
             image(fontText['space'], pos.x, pos.y)
-            pos.x+=fontText['space'].width
+            pos.x+=fontText['space'].width*fontsize
         }
 
     }
