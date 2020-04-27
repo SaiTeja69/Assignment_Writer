@@ -16,6 +16,7 @@ function incrementor(){
 change=change+1;
 change=change%fontssss.length;
 console.log(change)
+changeFont();
 };
 function preload() {
     changeFont();
