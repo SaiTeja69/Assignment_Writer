@@ -30,8 +30,8 @@ function setup(){
 }
 
 function draw(){
-    background(255)
-    // image(img, 0, 0, width, height)
+    //background(255)
+    image(img, 0, 0, width, height)
     textSize(fontsize)
     fill('#264180')
     if(linespacing){
@@ -55,7 +55,7 @@ function draw(){
 function changeFont(){
     dataAvailable.forEach(i => {
         try {
-            fontText['textImage'+String.fromCharCode(i)] = loadImage(str(fontssss[change])+'/'+str(i)+'.jpg')
+            fontText['textImage'+String.fromCharCode(i)] = loadImage(str(fontssss[change])+'/'+str(i)+'_t.png')
         } catch (error) {
         }
     });

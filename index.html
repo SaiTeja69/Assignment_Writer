@@ -50,8 +50,9 @@
 							<fieldset>
 								<textarea placeholder="Enter Text You want to be written a paper...." id="dataField" onkeyup="myData = this.value"></textarea>
 							</fieldset>
-							<input class="button-primary button-large download-image hidden" type="file" onclick="">
+							<input class="button-primary button-large download-image hidden" type="file" id="pageUploader" onclick="">
 							<div class="row">
+								<button class="column button-primary button-large inline-btn" id="btnFileUpload">Upload Custom Background</button>
 								<button class="column button-primary button-large inline-btn" onclick="incrementor()">Change Handwriting Style</button>
 								<button class="column button-primary button-large inline-btn" onclick="loadPage()">Change to Default Page</button>
 								<button class="column button-primary button-large download-image inline-btn" onclick="save(str(pageNum++))">Download Page</button>
