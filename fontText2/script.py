@@ -12,7 +12,7 @@ for f in files:
         if(item!=(255, 255, 255, 255)):
             print(item)
         if item[0] < 200 and item[1] < 200 and item[2] < 200:
-            newData.append((103, 93, 145, 255))
+            newData.append(item)
         else:
             if item[0] > 150:
                 newData.append((0, 0, 0, 0))
