@@ -1,4 +1,4 @@
-let myData = `Demo`;
+let textData = `Demo`;
 let img, myFont;
 let fontssss = ['fontText', 'fontText1', 'fontText2'];
 let change = 1;
@@ -31,7 +31,7 @@ function setup() {
 }
 
 function draw() {
-	background(255);
+	//background(255);
 	image(img, 0, 0, width, height);
 	textSize(fontsize);
 	fill('#264180');
@@ -39,22 +39,23 @@ function draw() {
 		textLeading(linespacing);
 	}
 	pos = createVector(xaxis, yaxis);
-	data = '\n' + myData;
+
 	// text(data, xaxis, yaxis, w, 900);
-	for (var i = 0; i <= myData.length; i++) {
-		if (pos.x >= xaxis + w || myData[i] == '\n') {
+
+	for (var i = 0; i <= textData.length; i++) {
+		if (pos.x >= xaxis + w || textData[i] == '\n') {
 			pos.x = xaxis;
 			pos.y += linespacing * fontsize;
 		}
-		if ('textImage' + myData[i] in fontText) {
+		if ('textImage' + textData[i] in fontText) {
 			image(
-				fontText['textImage' + myData[i]],
+				fontText['textImage' + textData[i]],
 				pos.x,
 				pos.y,
-				fontText['textImage' + myData[i]].width * fontsize,
-				fontText['textImage' + myData[i]].height * fontsize
+				fontText['textImage' + textData[i]].width * fontsize,
+				fontText['textImage' + textData[i]].height * fontsize
 			);
-			pos.x += fontText['textImage' + myData[i]].width * fontsize;
+			pos.x += fontText['textImage' + textData[i]].width * fontsize;
 		}
 	}
 }
