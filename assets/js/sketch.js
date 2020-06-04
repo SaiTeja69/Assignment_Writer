@@ -55,7 +55,8 @@ function draw() {
 			pos.y += linespacing * fontsize;
 		}
 		if ('textImage' + textData[i] in fontText) {
-			console.log(textData[i]);
+			// console.log(textData[i]);
+
 			image(
 				fontText['textImage' + textData[i]],
 				pos.x,
