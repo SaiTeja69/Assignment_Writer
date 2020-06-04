@@ -21,6 +21,11 @@ function incrementor() {
 	changeFont();
 }
 
+function textChanged(text) {
+	textData = text;
+	loop();
+}
+
 function preload() {
 	changeFont();
 	loadPage();
@@ -30,6 +35,7 @@ function setup() {
 	canvas = createCanvas(750, 1000);
 	canvas.parent('contributing');
 	rectMode(CORNER);
+	noLoop();
 }
 
 function draw() {
@@ -48,6 +54,7 @@ function draw() {
 			pos.y += linespacing * fontsize;
 		}
 		if ('textImage' + textData[i] in fontText) {
+			console.log(textData[i]);
 			image(
 				fontText['textImage' + textData[i]],
 				pos.x,
