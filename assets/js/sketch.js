@@ -56,14 +56,14 @@ function draw() {
 		}
 		if ('textImage' + textData[i] in fontText) {
 			// console.log(textData[i]);
-
-			image(
-				fontText['textImage' + textData[i]],
-				pos.x,
-				pos.y,
-				fontText['textImage' + textData[i]].width * fontsize,
-				fontText['textImage' + textData[i]].height * fontsize
-			);
+			if (textData[i])
+				image(
+					fontText['textImage' + textData[i]],
+					pos.x,
+					pos.y,
+					fontText['textImage' + textData[i]].width * fontsize,
+					fontText['textImage' + textData[i]].height * fontsize
+				);
 			pos.x += fontText['textImage' + textData[i]].width * fontsize;
 		}
 	}
@@ -72,12 +72,13 @@ function draw() {
 function changeFont() {
 	dataAvailable.forEach((i) => {
 		try {
+			console.log(str(fontssss[change]) + '/' + str(i) + '_t.png');
 			fontText['textImage' + String.fromCharCode(i)] = loadImage(
 				str(fontssss[change]) + '/' + str(i) + '_t.png'
 			);
-			loop();
 		} catch (error) {}
 	});
+	loop();
 }
 
 function loadPage() {
