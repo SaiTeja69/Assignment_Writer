@@ -35,9 +35,7 @@ function draw() {
 	image(img, 0, 0, width, height);
 	textSize(fontsize);
 	fill('#264180');
-	if (linespacing) {
-		textLeading(linespacing);
-	}
+	if (linespacing) textLeading(linespacing);
 	pos = createVector(xaxis, yaxis);
 
 	// text(data, xaxis, yaxis, w, 900);
