@@ -10,8 +10,9 @@ let w = 700;
 let linespacing = 70;
 let fontText = [];
 
+// elements of list(range(32, 126)) minus the element '96'
 let dataAvailable = Array.from(new Array(93), (x, i) => i + 32);
-dataAvailable.splice(64, 1);
+dataAvailable.splice(64, 1); // remove item '96'
 
 function incrementor() {
 	change = change + 1;
