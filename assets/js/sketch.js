@@ -14,12 +14,13 @@ let fontText = [];
 let dataAvailable = Array.from(new Array(93), (x, i) => i + 32);
 dataAvailable.splice(64, 1); // remove item '96'
 
+// this function has binding in index.html
 function incrementor() {
-	change = change + 1;
-	change = change % fontssss.length;
-	console.log(change);
+	change = (change + 1) % fontssss.length;
+	// console.log(change);
 	changeFont();
 }
+
 function preload() {
 	changeFont();
 	loadPage();
