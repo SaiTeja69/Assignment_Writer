@@ -49,10 +49,11 @@ function setup() {
 	canvas = createCanvas(750, 1000);
 	canvas.parent('contributing');
 	rectMode(CORNER);
-	noLoop();
+	
 }
 
 function draw() {
+    noLoop();
 	//background(255);
 	image(img, 0, 0, width, height);
 	textSize(fontsize);
