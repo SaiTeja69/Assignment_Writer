@@ -29,6 +29,7 @@ function textChanged(text) {
 function preload() {
 	changeFont();
 	loadPage();
+	loop();
 }
 
 function setup() {
@@ -73,10 +74,12 @@ function changeFont() {
 			fontText['textImage' + String.fromCharCode(i)] = loadImage(
 				str(fontssss[change]) + '/' + str(i) + '_t.png'
 			);
+			loop();
 		} catch (error) {}
 	});
 }
 
 function loadPage() {
 	img = loadImage('pages/page (2).jpg');
+	loop();
 }
