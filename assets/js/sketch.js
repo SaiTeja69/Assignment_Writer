@@ -1,4 +1,4 @@
-let textData = `Demo`;
+let myData = `Demo`;
 let img, myFont;
 let fontssss = ['fontText', 'fontText1', 'fontText2'];
 let change = 1;
@@ -40,20 +40,20 @@ function draw() {
 
 	// text(data, xaxis, yaxis, w, 900);
 
-	for (var i = 0; i <= textData.length; i++) {
-		if (pos.x >= xaxis + w || textData[i] == '\n') {
+	for (var i = 0; i <= myData.length; i++) {
+		if (pos.x >= xaxis + w || myData[i] == '\n') {
 			pos.x = xaxis;
 			pos.y += linespacing * fontsize;
 		}
-		if ('textImage' + textData[i] in fontText) {
+		if ('textImage' + myData[i] in fontText) {
 			image(
-				fontText['textImage' + textData[i]],
+				fontText['textImage' + myData[i]],
 				pos.x,
 				pos.y,
-				fontText['textImage' + textData[i]].width * fontsize,
-				fontText['textImage' + textData[i]].height * fontsize
+				fontText['textImage' + myData[i]].width * fontsize,
+				fontText['textImage' + myData[i]].height * fontsize
 			);
-			pos.x += fontText['textImage' + textData[i]].width * fontsize;
+			pos.x += fontText['textImage' + myData[i]].width * fontsize;
 		}
 	}
 }
