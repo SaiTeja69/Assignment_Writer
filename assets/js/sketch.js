@@ -10,8 +10,21 @@ let w = 700;
 let linespacing = 70;
 let fontText = [];
 
+tmpOffsetMap = [
+	6,
+	-2,
+	-1.11111111,
+	-0.22222222,
+	0.66666667,
+	1.55555556,
+	2.44444444,
+	3.33333333,
+	4.22222222,
+	5.11111111,
+];
+
 // elements of list(range(32, 126)) minus the element '96'
-let dataAvailable = Array.from(new Array(93), (x, i) => i + 32);
+let dataAvailable = Array.from(new Array(94), (x, i) => i + 32);
 dataAvailable.splice(64, 1); // remove item '96'
 
 // this function has binding in index.html
@@ -54,15 +67,27 @@ function draw() {
 			pos.x = xaxis;
 			pos.y += linespacing * fontsize;
 		}
+
+		let y_offset = 0;
+		y_scale = 1;
+		y_shift_flag = 0;
+
 		if ('textImage' + textData[i] in fontText) {
-			// console.log(textData[i]);
+			// console.log(fontText);
+			if (change < 2 && !isNaN(textData[i])) {
+				y_shift_flag = 1;
+				y_scale = 2;
+				y_offset = y_scale * tmpOffsetMap[Number(textData[i])];
+			}
 			if (textData[i])
 				image(
 					fontText['textImage' + textData[i]],
 					pos.x,
-					pos.y,
+					pos.y + -28 * y_shift_flag,
 					fontText['textImage' + textData[i]].width * fontsize,
-					fontText['textImage' + textData[i]].height * fontsize
+					fontText['textImage' + textData[i]].height *
+						fontsize *
+						y_scale
 				);
 			pos.x += fontText['textImage' + textData[i]].width * fontsize;
 		}
@@ -70,9 +95,9 @@ function draw() {
 }
 
 function changeFont() {
+	console.log(change);
 	dataAvailable.forEach((i) => {
 		try {
-			console.log(str(fontssss[change]) + '/' + str(i) + '_t.png');
 			fontText['textImage' + String.fromCharCode(i)] = loadImage(
 				str(fontssss[change]) + '/' + str(i) + '_t.png'
 			);
