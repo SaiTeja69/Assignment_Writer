@@ -1,66 +1,87 @@
-myData = `Demo`
+let textData = `Demo`;
 let img, myFont;
-let fontssss=['fontText','fontText1','fontText2']
-let change=1;
-imgNum = 1
-fontNum = 1
-pageNum = 1
-xaxis=20
-yaxis=20
-fontsize=0.4
-w=700
-linespacing=70
-fontText = [];
-dataAvailable = [32,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,97,98,99]
-function incrementor(){
-change=change+1;
-change=change%fontssss.length;
-console.log(change)
-changeFont();
-};
+let fontssss = ['fontText', 'fontText1', 'fontText2'];
+let change = 1;
+
+let xaxis = 20;
+let yaxis = 20;
+let fontsize = 0.4;
+let w = 700;
+let linespacing = 70;
+let fontText = [];
+
+// elements of list(range(32, 126)) minus the element '96'
+let dataAvailable = Array.from(new Array(94), (x, i) => i + 32);
+dataAvailable.splice(64, 1); // remove item '96'
+
+// this function has binding in index.html
+function incrementor() {
+	change = (change + 1) % fontssss.length;
+	// console.log(change);
+	changeFont();
+}
+
+function textChanged(text) {
+	textData = text;
+	loop();
+}
+
 function preload() {
-    changeFont();
-    loadPage();
+	changeFont();
+	loadPage();
+	loop();
 }
 
-function setup(){
-    canvas = createCanvas(750,1000)
-    canvas.parent('contributing')
-    rectMode(CORNER);
+function setup() {
+	canvas = createCanvas(750, 1000);
+	canvas.parent('contributing');
+	rectMode(CORNER);
+	noLoop();
 }
 
-function draw(){
-    //background(255)
-    image(img, 0, 0, width, height)
-    textSize(fontsize)
-    fill('#264180')
-    if(linespacing){
-        textLeading(linespacing);
-    }
-    pos = createVector(xaxis, yaxis)
-    data = "\n"+myData
-    // text(data, xaxis, yaxis, w, 900);
-    for(var i=0;i<=myData.length;i++){
-        if(pos.x >= xaxis+w || myData[i]=='\n'){
-            pos.x = xaxis
-            pos.y += linespacing*fontsize
-        }
-        if('textImage'+myData[i] in fontText){
-            image(fontText['textImage'+myData[i]], pos.x, pos.y,fontText['textImage'+myData[i]].width*fontsize,fontText['textImage'+myData[i]].height*fontsize)
-            pos.x += fontText['textImage'+myData[i]].width*fontsize
-        }
-    }
+function draw() {
+	//background(255);
+	image(img, 0, 0, width, height);
+	textSize(fontsize);
+	fill('#264180');
+	if (linespacing) textLeading(linespacing);
+	pos = createVector(xaxis, yaxis);
+
+	// text(data, xaxis, yaxis, w, 900);
+
+	for (var i = 0; i <= textData.length; i++) {
+		if (pos.x >= xaxis + w || textData[i] == '\n') {
+			pos.x = xaxis;
+			pos.y += linespacing * fontsize;
+		}
+		if ('textImage' + textData[i] in fontText) {
+			// console.log(textData[i]);
+			if (textData[i])
+				image(
+					fontText['textImage' + textData[i]],
+					pos.x,
+					pos.y,
+					fontText['textImage' + textData[i]].width * fontsize,
+					fontText['textImage' + textData[i]].height * fontsize
+				);
+			pos.x += fontText['textImage' + textData[i]].width * fontsize;
+		}
+	}
 }
 
-function changeFont(){
-    dataAvailable.forEach(i => {
-        try {
-            fontText['textImage'+String.fromCharCode(i)] = loadImage(str(fontssss[change])+'/'+str(i)+'_t.png')
-        } catch (error) {
-        }
-    });
+function changeFont() {
+	dataAvailable.forEach((i) => {
+		try {
+			console.log(str(fontssss[change]) + '/' + str(i) + '_t.png');
+			fontText['textImage' + String.fromCharCode(i)] = loadImage(
+				str(fontssss[change]) + '/' + str(i) + '_t.png'
+			);
+		} catch (error) {}
+	});
+	loop();
 }
 
-function loadPage(){
-    img = loadImage('pages/page (2).jpg');
+function loadPage() {
+	img = loadImage('pages/page (2).jpg');
+	loop();
 }
