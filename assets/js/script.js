@@ -8,7 +8,9 @@ window.onload = function () {
 		var reader = new FileReader();
 		reader.readAsDataURL(fileupload.files[0]);
 		reader.onload = function (e) {
-			img = loadImage(e.target.result);
+			img = loadImage(e.target.result, () => {
+				loop();
+			});
 		};
 	};
 	loadDarkModeFromLocalStorage();
