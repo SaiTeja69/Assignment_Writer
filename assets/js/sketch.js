@@ -5,6 +5,7 @@ let change = 1;
 
 let xaxis = 20;
 let yaxis = 20;
+let pageNum = 1;
 let fontsize = 0.4;
 let w = 700;
 let linespacing = 70;
