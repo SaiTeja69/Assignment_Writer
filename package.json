@@ -1,21 +1,21 @@
 {
   "name": "assignment_writer",
   "version": "1.0.0",
-  "description": "find it at :https://saiteja69.github.io/Assignment_Writer/<br />\r A Vague attempt to convert a great tool to website , couldn't do this without @imlolman help! and swapnil sir's blessings<br />\r V1.0 :<br />\r  What works? <br />\r   Small Letters (only)<br />\r V2.0 :<br />\r Capital Letters and numbers!\r V3.0 : <br />\r Everything works! , new handwriting styles added!\r <br />\r Output:\r ![alt text](https://github.com/SaiTeja69/Assignment_Writer/blob/master/output.jpg)",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SaiTeja69/Assignment_Writer.git"
+    "url": ""
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SaiTeja69/Assignment_Writer/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/SaiTeja69/Assignment_Writer#readme",
+  "homepage": "",
   "dependencies": {
     "express": "^4.18.1"
   }
